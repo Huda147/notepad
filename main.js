@@ -1,14 +1,13 @@
 // Your Firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyBSJbHZC_EN3BL600vtec-cdncPDnBofUE",
-    authDomain: "realtime-notepad-huda147.firebaseapp.com",
-    databaseURL: "https://realtime-notepad-huda147-default-rtdb.firebaseio.com",
-    projectId: "realtime-notepad-huda147",
-    storageBucket: "realtime-notepad-huda147.firebasestorage.app",
-    messagingSenderId: "1072103737097",
-    appId: "1:1072103737097:web:397fc32843cda3cf7f35d8"
+    apiKey: "AIzaSyAB7CdAQDQSwJ3Y_zQ-7rk3JjZUMTJgOc4",
+    authDomain: "notepad-real-time.firebaseapp.com",
+    databaseURL: "https://notepad-real-time-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "notepad-real-time",
+    storageBucket: "notepad-real-time.firebasestorage.app",
+    messagingSenderId: "882448817426",
+    appId: "1:882448817426:web:0440fbe5bfbb1a901fe7cb"
   };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
