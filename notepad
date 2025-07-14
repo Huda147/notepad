@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shared Notepad</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 90vh;
+      font-size: 1.2rem;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h2>Real-Time Shared Notepad ✍️</h2>
+  <textarea id="note" placeholder="Start typing..."></textarea>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBSJbHZC_EN3BL600vtec-cdncPDnBofUE",
+authDomain: "realtime-notepad-huda147.firebaseapp.com",
+databaseURL: "https://realtime-notepad-huda147-default-rtdb.firebaseio.com",
+projectId: "realtime-notepad-huda147",
+storageBucket: "realtime-notepad-huda147.firebasestorage.app",
+messagingSenderId: "1072103737097",
+appId: "1:1072103737097:web:397fc32843cda3cf7f35d8"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const noteRef = db.ref("sharedNote");
+
+    const textarea = document.getElementById("note");
+
+    // Update database when text changes
+    textarea.addEventListener("input", () => {
+      noteRef.set(textarea.value);
+    });
+
+    // Update UI when database changes
+    noteRef.on("value", (snapshot) => {
+      if (document.activeElement !== textarea) {
+        textarea.value = snapshot.val() || "";
+      }
+    });
+  </script>
+</body>
+</html>
